@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29001.49
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppResourcesWatcher", "AppResourcesWatcher\AppResourcesWatcher.csproj", "{97D02E24-B228-4518-9DCE-227F89AC89B9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{97D02E24-B228-4518-9DCE-227F89AC89B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97D02E24-B228-4518-9DCE-227F89AC89B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97D02E24-B228-4518-9DCE-227F89AC89B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97D02E24-B228-4518-9DCE-227F89AC89B9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FAA97452-5408-43A6-B264-CBD3C44B5379}
+	EndGlobalSection
+EndGlobal
