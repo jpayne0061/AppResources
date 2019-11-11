@@ -4,14 +4,16 @@ using AppResourcesWatcher;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AppResourcesWatcher.Migrations
 {
     [DbContext(typeof(MemorySnapShotContext))]
-    partial class MemorySnapShotContextModelSnapshot : ModelSnapshot
+    [Migration("20191111115325_addDateTimeProperty")]
+    partial class addDateTimeProperty
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

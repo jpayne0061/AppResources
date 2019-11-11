@@ -1,10 +1,7 @@
-﻿using AppResourcesWatcher.Models;
+﻿using AppResourcesWatcher.Enums;
+using AppResourcesWatcher.Models;
 using AppResourcesWatcher.Services;
-using Microsoft.Extensions.Configuration;
-using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
 using System.Threading;
 
 namespace AppResourcesWatcher
@@ -14,19 +11,19 @@ namespace AppResourcesWatcher
 
         static void Main(string[] args)
         {
-            long currentInterval = 0;
-
-            string connectionString = GetConnectionString();
-
-            MemorySnapShotContext memorySnapShotContext = new MemorySnapShotContext(connectionString);
-
-            Data data = new Data(memorySnapShotContext);
+            #region dependencies
+            Data data = new Data(new MemorySnapShotContext());
 
             List<MemorySnapshot> memorySnapshots = new List<MemorySnapshot>();
 
             ShellCommands shellCommandsService = new ShellCommands();
 
             ParsingService parsingService = new ParsingService();
+
+            long currentInterval = 0;
+
+            int tenSeconds = (int)TimeFromMsEnums.TenSeconds;
+            #endregion dependencies
 
             while (true)
             {
@@ -39,29 +36,18 @@ namespace AppResourcesWatcher
                 else
                     memorySnapshots.Add(new MemorySnapshot());
 
-                if (currentInterval > 300000)
+                if (currentInterval > (int)TimeFromMsEnums.FiveMinutes)
                 {
                     data.SaveMemorySnapshots(memorySnapshots);
                     memorySnapshots = new List<MemorySnapshot>();
                     currentInterval = 0;
                 }
 
-                currentInterval += 10000;
+                currentInterval += tenSeconds;
 
-                Thread.Sleep(10000);
+                Thread.Sleep(tenSeconds);
             }
 
-        }
-
-        static string GetConnectionString()
-        {
-            var builder = new ConfigurationBuilder()
-                        .SetBasePath(Directory.GetCurrentDirectory())
-                        .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
-
-            IConfigurationRoot configuration = builder.Build();
-
-            return configuration.GetConnectionString("AppDb");
         }
 
     }

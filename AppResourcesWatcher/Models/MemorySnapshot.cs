@@ -13,6 +13,6 @@ namespace AppResourcesWatcher.Models
         public int Shared { get; set; }
         public int BuffCache { get; set; }
         public int Available { get; set; }
-
+        public DateTime DateTimeUTC { get; set; }
     }
 }

@@ -21,7 +21,8 @@ namespace AppResourcesWatcher.Services
                     Free = stats[2],
                     Shared = stats[3],
                     BuffCache = stats[4],
-                    Available = stats[5]
+                    Available = stats[5],
+                    DateTimeUTC = DateTime.UtcNow
                 };
             }
             catch(Exception ex)
